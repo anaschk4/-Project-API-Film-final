@@ -6,7 +6,7 @@ API RESTful en PHP qui récupère des films depuis TMDB et gère une liste de fa
 
 ```bash
 # 1. Cloner / dézipper le projet
-cd -Project-API-Film-final
+-Project-API-Film-final/projet-final/
 
 # 2. Lancer le serveur PHP
 php -S localhost:8000
