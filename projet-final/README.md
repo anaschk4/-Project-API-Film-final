@@ -1,4 +1,4 @@
-# FilmVault — API REST Films
+# AFILM — API REST Films
 
 API RESTful en PHP qui récupère des films depuis TMDB et gère une liste de favoris.
 
