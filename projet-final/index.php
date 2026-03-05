@@ -13,27 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-header("Content-Type: application/json; charset=utf-8");
-
 $method = $_SERVER['REQUEST_METHOD'];
 $path   = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $path   = rtrim($path, '/');
 
 if ($method === 'GET' && ($path === '' || $path === '/')) {
-    http_response_code(200);
-    echo json_encode([
-        "message" => "API Films opérationnelle",
-        "routes"  => [
-            "GET  /movies?type=popular"    => "Films par catégorie",
-            "GET  /movies/search?q=batman" => "Recherche de films",
-            "GET  /movies/{id}"            => "Détail d'un film",
-            "GET  /favorites"              => "Liste des favoris",
-            "POST /favorites"              => "Ajouter un favori",
-            "DELETE /favorites/{id}"       => "Supprimer un favori",
-        ]
-    ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    header("Location: /front.html");
     exit;
 }
+
+header("Content-Type: application/json; charset=utf-8");
 
 if ($method === 'GET' && $path === '/movies/search') {
     $query = $_GET['q'] ?? '';
